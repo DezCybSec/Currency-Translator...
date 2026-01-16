@@ -10,18 +10,18 @@ int main()
 {
     double init_curr ;
     double v, t_v, e_r; // v == value == amount to translate ; t_v == translated value ; e_r == exchange rate
-    string tc;                                // tc here stands for target currency
+    char tc;                                // tc here stands for target currency
 
     void welcome(); //1. Welcome function
     cout << " MENU : " << endl;
     void cur_ch(); // 2. Function for the choice of the currency ; cur_ch means currency_choice
 
     cout << " Input the value to translate " << endl;
-    cin >> value ;
+    cin >> v ;
     cout << " Just input the number (without the   " << " . " << " beside the target currency you want" ;
     cout << " according to the menu below) " << endl;
     cin >> tc;
-
+		double cur_op (char tc, double e_r, double t_v) ;
     return 0;
 }
 void welcome(){
@@ -48,13 +48,14 @@ void cur_ch(){
 }
 
 
-
+ 	double cur_op (char tc, double e_r, double v, double t_v) 	//cur_op means here currency_operations
+{ 			
     switch (tc){
     case '1' :
         cout <<  " Canadian dollars " << endl;
         cout << " " << endl;
         e_r = 1.36 ;
-        t_v = v * e_r ;
+        t_v = v * e_r;
         cout << " You have : " << t_v << " CAD " << endl;
 
     case '2' :
@@ -74,8 +75,17 @@ void cur_ch(){
         cout << " You have : " << t_v << " GBP" << endl;
 
     case '4' :
-        cout << " Japanese yen "
-
+        cout << " Japanese yen " << endl;
+        cout <<	" " << endl;
+        
+        e_r = 136.50;
+        t_v = v * e_r;
+        cout << " You have : " << t_v << "JPY" << endl;
+    default :
+    	cout << " ? ERROR ? " << endl;
+    	return 0;
+	}
+}
 
 
 
